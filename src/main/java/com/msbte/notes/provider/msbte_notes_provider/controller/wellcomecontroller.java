@@ -8,6 +8,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class wellcomecontroller {
 
+      
+     
+    @GetMapping("/")
+    public String index() {
+        return "index"; // Loads templates/index.html
+    }
+    
     @GetMapping("/Admin")
     public String showWelcomePage() {
         return "wellcome";  // Renders templates/welcome.html

@@ -14,7 +14,7 @@ public class wellcomecontroller {
     public String index() {
         return "index"; // Loads templates/index.html
     }
-    
+
     @GetMapping("/Admin")
     public String showWelcomePage() {
         return "wellcome";  // Renders templates/welcome.html

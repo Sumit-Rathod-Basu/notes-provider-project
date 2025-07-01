@@ -13,6 +13,11 @@ public class wellcomecontroller {
         return "wellcome";  // Renders templates/welcome.html
     }
 
+    @GetMapping("/notess")
+    public String showWelcomePage1() {
+        return "index";  // Renders templates/welcome.html
+    }
+
     @GetMapping("/go-login")
     public String redirectToLogin() {
         return "redirect:/login.html";  // Static page or your login route

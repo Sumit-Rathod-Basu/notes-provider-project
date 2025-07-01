@@ -1,0 +1,21 @@
+package com.msbte.notes.provider.msbte_notes_provider.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+//import org.springframework.web.bind.annotation.RequestParam;
+
+
+@Controller
+public class wellcomecontroller {
+
+    @GetMapping("/Admin")
+    public String showWelcomePage() {
+        return "wellcome";  // Renders templates/welcome.html
+    }
+
+    @GetMapping("/go-login")
+    public String redirectToLogin() {
+        return "redirect:/login.html";  // Static page or your login route
+    }
+}
+

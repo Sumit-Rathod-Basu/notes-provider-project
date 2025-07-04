@@ -27,7 +27,7 @@ public class wellcomecontroller {
 
     @GetMapping("/go-login")
     public String redirectToLogin() {
-        return "redirect:/login.html";  // Static page or your login route
+        return "login";  // Static page or your login route
     }
 }
 

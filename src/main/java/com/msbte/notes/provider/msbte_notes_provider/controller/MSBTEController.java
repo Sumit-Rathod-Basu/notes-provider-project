@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.ResponseEntity;
-
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,13 +22,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+//import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 //import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @CrossOrigin(origins = "*")
-@RestController
+@Controller
 @RequestMapping("/note")
 @ComponentScan(basePackages = {"com.msbte.notes.provider.msbte_notes_provider.Services"})
 public class MSBTEController 
@@ -39,7 +39,7 @@ public class MSBTEController
         private MSBTEService ms;
     
     @PostMapping("/uploadNotes")
-           public ResponseEntity<String>  uploadNotes(
+           public String uploadNotes(
            @RequestParam String title,
             @RequestParam String subject,
             @RequestParam String semester,
@@ -49,8 +49,14 @@ public class MSBTEController
             @RequestParam MultipartFile image) throws IOException
         {
                ms.uploadNote(title,subject,semester,description,isPaid,pdf,image);
-               return ResponseEntity.ok("data added succesfullyy");
+           return "dashbord";
+
         }
+
+    /*       @GetMapping("/admin/dashboard")
+    public String dashboardPage() {
+        return "dashboard"; // ✅ This loads admin-dashboard.html
+    } */
 
   // ✅ API for JavaScript fetch (used in fetchNotes() in your HTML)
     @ResponseBody

@@ -24,7 +24,7 @@ public class AdminController {
     // Show Signup Page
     @GetMapping("/singup")
     public String showSignupForm() {
-        return "redirect:/singup.html";
+        return "singup";
     }
 
     // Handle Signup
@@ -34,13 +34,13 @@ public class AdminController {
         admin.setEmail(email);
         admin.setPassword(password);
         adminService.register(admin);
-        return "redirect:/login.html";
+        return "login";
     }
 
     // Show Login Page
     @GetMapping("/login")
     public String showLoginForm() {
-        return "redirect:/login.html";
+        return "login";
     }
 
     // Handle Login
@@ -48,7 +48,7 @@ public class AdminController {
     public String login(@RequestParam String email, @RequestParam String password, HttpSession session) {
         if (adminService.authenticate(email, password)) {
             session.setAttribute("adminEmail", email);
-            return "redirect:/dashbord.html";
+            return "dashbord";
         } else {
             return "redirect:/login.html?error=true";
         }
@@ -58,7 +58,7 @@ public class AdminController {
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/login.html";
+        return "login";
     }
 
 
